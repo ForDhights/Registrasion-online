@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Secure Login</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #0f172a, #312e81);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    width: 360px;
+    padding: 30px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+    animation: fade 1.6s ease;
+}
+
+h2 {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 12px;
+    border-radius: 8px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    background: linear-gradient(135deg, #38bdf8, #22d3ee);
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.msg {
+    text-align: center;
+    margin-top: 12px;
+    color: #ffb4b4;
+    font-size: 14px;
+}
+
+@keyframes fade {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>SECURE LOGIN</h2>
+
+    <input type="text" id="user" placeholder="Username">
+    <input type="password" id="pass" placeholder="Password">
+    <input type="text" id="code" placeholder="Code">
+
+    <button onclick="login()">LOGIN</button>
+    <div class="msg" id="msg"></div>
+</div>
+
+<script>
+function login() {
+    const username = document.getElementById("user").value;
+    const password = document.getElementById("pass").value;
+    const code = document.getElementById("code").value;
+
+    // DATA BENAR (CASE-SENSITIVE)
+    const correctUser = "ZARTIX";
+    const correctPass = "V2ppL201";
+    const correctCode = "3952";
+
+    if (
+        username === correctUser &&
+        password === correctPass &&
+        code === correctCode
+    ) {
+        window.location.href = "#ISI_LINK_DISINI";
+    } else {
+        document.getElementById("msg").innerText =
+            "Login gagal! Periksa Username, Password, dan Code.";
+    }
+}
+</script>
+
+</body>
+</html>
